@@ -1,8 +1,10 @@
 name: chatapp_workspace
+
 packages:
-  - apps/**
-  - backend/**
-  - packages/**
+  - apps/mobile_app
+  - backend/server
+  - packages/api_client
+
 command:
   bootstrap:
     usePubspecOverrides: true

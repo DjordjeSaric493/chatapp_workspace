@@ -1,5 +1,12 @@
 name: chatapp_workspace
 environment:
   sdk: '^3.5.0'
+
+# DODAJ OVO (Eksplicitne putanje do tvojih paketa):
+workspace:
+  - apps/mobile_app
+  - backend/server
+  - packages/api_client
+
 dev_dependencies:
   melos: ^7.4.0
