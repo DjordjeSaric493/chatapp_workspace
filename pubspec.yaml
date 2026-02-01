@@ -1,0 +1,5 @@
+name: chatapp_workspace
+environment:
+  sdk: '^3.5.0'
+dev_dependencies:
+  melos: ^7.4.0
