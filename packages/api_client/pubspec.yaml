@@ -1,6 +1,8 @@
 name: chatapp_client
 description: Starting point for a Serverpod client.
 
+resolution: workspace
+
 environment:
   sdk: '^3.8.0'
 
