@@ -1,0 +1,5 @@
+class: Channel
+table: channel
+fields:
+  name: String
+  type: String # Ovde mogu kasnije uvesti i enum (npr. 'public', 'private')

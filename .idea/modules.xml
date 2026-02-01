@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<module fileurl="file://$PROJECT_DIR$/packages/api_client/melos_chatapp_client.iml" filepath="$PROJECT_DIR$/packages/api_client/melos_chatapp_client.iml"/>
+<module fileurl="file://$PROJECT_DIR$/apps/mobile_app/melos_chatapp_flutter.iml" filepath="$PROJECT_DIR$/apps/mobile_app/melos_chatapp_flutter.iml"/>
+<module fileurl="file://$PROJECT_DIR$/backend/server/melos_chatapp_server.iml" filepath="$PROJECT_DIR$/backend/server/melos_chatapp_server.iml"/>
 <module fileurl="file://$PROJECT_DIR$/melos_chatapp_workspace.iml" filepath="$PROJECT_DIR$/melos_chatapp_workspace.iml"/>
     </modules>
   </component>

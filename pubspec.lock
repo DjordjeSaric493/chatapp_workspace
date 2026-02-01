@@ -217,6 +217,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.7"
+  crypto_keys:
+    dependency: transitive
+    description:
+      name: crypto_keys
+      sha256: "2ed305a11a3e5d16dd7f489121c956fd19b9816938bb68bc7ed3a379827a304e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.0+2"
   cupertino_icons:
     dependency: transitive
     description:
@@ -225,6 +233,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
+  dart_firebase_admin:
+    dependency: transitive
+    description:
+      name: dart_firebase_admin
+      sha256: "99e0d27edd09803ed2cfb8bfa64f28f503bf4b14de609a5dc438cb23770b0b27"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.4.1"
   dart_jsonwebtoken:
     dependency: transitive
     description:
@@ -373,6 +389,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  freezed_annotation:
+    dependency: transitive
+    description:
+      name: freezed_annotation
+      sha256: "7294967ff0a6d98638e7acb774aac3af2550777accd8149c90af5b014e6d44d8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.0"
   frontend_server_client:
     dependency: transitive
     description:
@@ -449,18 +473,26 @@ packages:
     dependency: transitive
     description:
       name: googleapis
-      sha256: "692fb9e90c321b61a7a2123de0353ec8a20691cd979db2553d8d732f710f6535"
+      sha256: "864f222aed3f2ff00b816c675edf00a39e2aaf373d728d8abec30b37bee1a81c"
       url: "https://pub.dev"
     source: hosted
-    version: "15.0.0"
+    version: "13.2.0"
   googleapis_auth:
     dependency: transitive
     description:
       name: googleapis_auth
-      sha256: b81fe352cc4a330b3710d2b7ad258d9bcef6f909bb759b306bf42973a7d046db
+      sha256: befd71383a955535060acde8792e7efc11d2fccd03dd1d3ec434e85b68775938
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.0"
+    version: "1.6.0"
+  googleapis_beta:
+    dependency: transitive
+    description:
+      name: googleapis_beta
+      sha256: "1a92969f28c4c0279687fa661306a0b0504c97d23effcb23a0ec8fe4ad84f85b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "9.0.0"
   graphs:
     dependency: transitive
     description:
@@ -525,6 +557,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  jose:
+    dependency: transitive
+    description:
+      name: jose
+      sha256: bd8dd0bee653a78be16f5e2c0387117906f8f5171f7dcc29e3246b6c7cb73918
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.5"
   js:
     dependency: transitive
     description:
@@ -653,6 +693,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.2"
+  openid_client:
+    dependency: transitive
+    description:
+      name: openid_client
+      sha256: d7c229b849eaf4ff0ac77c22f8f1c4c522f6830b8c58d7b73953514ad6980954
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.4.9+2"
   package_config:
     dependency: transitive
     description:
@@ -733,6 +781,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.0"
+  pem:
+    dependency: transitive
+    description:
+      name: pem
+      sha256: e66b389cbb007fa5860d511f08ea604ea68e78afc4e1b543dc227a0f0ef4faf9
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.6"
   petitparser:
     dependency: transitive
     description:
@@ -766,7 +822,7 @@ packages:
     source: hosted
     version: "2.1.8"
   pointycastle:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: pointycastle
       sha256: "92aa3841d083cc4b0f4709b5c74fd6409a3e6ba833ffc7dc6a8fee096366acf5"
@@ -845,6 +901,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.5.0"
+  quiver:
+    dependency: transitive
+    description:
+      name: quiver
+      sha256: ea0b925899e64ecdfbf9c7becb60d5b50e706ade44a85b2363be2a22d88117d2
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.2.2"
   redis:
     dependency: transitive
     description:
@@ -922,6 +986,14 @@ packages:
     description:
       name: serverpod_auth_idp_server
       sha256: d5170b61e362f92ed28f701c548a6fdca22f03135bfcf35e950233c2f07beec5
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.1"
+  serverpod_auth_server:
+    dependency: transitive
+    description:
+      name: serverpod_auth_server
+      sha256: "95b8f54078d205dae929a7d265c35448b34ff7e85bf9a059c6c147dacb555736"
       url: "https://pub.dev"
     source: hosted
     version: "3.1.1"
@@ -1250,6 +1322,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.15.0"
+  x509:
+    dependency: transitive
+    description:
+      name: x509
+      sha256: cbd1a63846884afd273cda247b0365284c8d85a365ca98e110413f93d105b935
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.4+3"
   xdg_directories:
     dependency: transitive
     description:

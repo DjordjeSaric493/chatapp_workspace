@@ -33,8 +33,10 @@
       "name": "chatapp_server",
       "version": "0.0.0",
       "dependencies": [
+        "dart_firebase_admin",
         "serverpod",
-        "serverpod_auth_idp_server"
+        "serverpod_auth_idp_server",
+        "serverpod_auth_server"
       ],
       "devDependencies": [
         "lints",
@@ -102,6 +104,14 @@
       ]
     },
     {
+      "name": "pointycastle",
+      "version": "4.0.0",
+      "dependencies": [
+        "collection",
+        "convert"
+      ]
+    },
+    {
       "name": "test",
       "version": "1.26.2",
       "dependencies": [
@@ -148,6 +158,44 @@
       "name": "lints",
       "version": "6.1.0",
       "dependencies": []
+    },
+    {
+      "name": "serverpod_auth_server",
+      "version": "3.1.1",
+      "dependencies": [
+        "crypto",
+        "email_validator",
+        "googleapis",
+        "googleapis_auth",
+        "http",
+        "image",
+        "jose",
+        "meta",
+        "openid_client",
+        "pointycastle",
+        "serverpod",
+        "serverpod_serialization",
+        "serverpod_shared"
+      ]
+    },
+    {
+      "name": "dart_firebase_admin",
+      "version": "0.4.1",
+      "dependencies": [
+        "asn1lib",
+        "collection",
+        "dart_jsonwebtoken",
+        "freezed_annotation",
+        "googleapis",
+        "googleapis_auth",
+        "googleapis_beta",
+        "http",
+        "intl",
+        "jose",
+        "meta",
+        "pem",
+        "pointycastle"
+      ]
     },
     {
       "name": "serverpod_auth_idp_server",
@@ -491,6 +539,13 @@
       ]
     },
     {
+      "name": "convert",
+      "version": "3.1.2",
+      "dependencies": [
+        "typed_data"
+      ]
+    },
+    {
       "name": "webkit_inspection_protocol",
       "version": "1.2.1",
       "dependencies": [
@@ -711,15 +766,6 @@
       ]
     },
     {
-      "name": "sign_in_with_apple_server",
-      "version": "1.0.0",
-      "dependencies": [
-        "dart_jsonwebtoken",
-        "http",
-        "meta"
-      ]
-    },
-    {
       "name": "serverpod_shared",
       "version": "3.1.1",
       "dependencies": [
@@ -728,6 +774,132 @@
         "path",
         "super_string",
         "yaml"
+      ]
+    },
+    {
+      "name": "openid_client",
+      "version": "0.4.9+2",
+      "dependencies": [
+        "args",
+        "clock",
+        "http",
+        "jose",
+        "logging",
+        "meta",
+        "pointycastle",
+        "web"
+      ]
+    },
+    {
+      "name": "jose",
+      "version": "0.3.5",
+      "dependencies": [
+        "archive",
+        "asn1lib",
+        "collection",
+        "crypto_keys",
+        "http",
+        "http_parser",
+        "meta",
+        "typed_data",
+        "x509"
+      ]
+    },
+    {
+      "name": "image",
+      "version": "4.7.2",
+      "dependencies": [
+        "archive",
+        "meta",
+        "xml"
+      ]
+    },
+    {
+      "name": "googleapis_auth",
+      "version": "1.6.0",
+      "dependencies": [
+        "args",
+        "crypto",
+        "google_identity_services_web",
+        "http",
+        "http_parser"
+      ]
+    },
+    {
+      "name": "googleapis",
+      "version": "13.2.0",
+      "dependencies": [
+        "_discoveryapis_commons",
+        "http"
+      ]
+    },
+    {
+      "name": "email_validator",
+      "version": "3.0.0",
+      "dependencies": []
+    },
+    {
+      "name": "crypto",
+      "version": "3.0.7",
+      "dependencies": [
+        "typed_data"
+      ]
+    },
+    {
+      "name": "pem",
+      "version": "2.0.6",
+      "dependencies": [
+        "petitparser"
+      ]
+    },
+    {
+      "name": "intl",
+      "version": "0.20.2",
+      "dependencies": [
+        "clock",
+        "meta",
+        "path"
+      ]
+    },
+    {
+      "name": "googleapis_beta",
+      "version": "9.0.0",
+      "dependencies": [
+        "_discoveryapis_commons",
+        "http"
+      ]
+    },
+    {
+      "name": "freezed_annotation",
+      "version": "3.1.0",
+      "dependencies": [
+        "collection",
+        "json_annotation",
+        "meta"
+      ]
+    },
+    {
+      "name": "dart_jsonwebtoken",
+      "version": "3.3.1",
+      "dependencies": [
+        "clock",
+        "convert",
+        "ed25519_edwards",
+        "pointycastle"
+      ]
+    },
+    {
+      "name": "asn1lib",
+      "version": "1.6.5",
+      "dependencies": []
+    },
+    {
+      "name": "sign_in_with_apple_server",
+      "version": "1.0.0",
+      "dependencies": [
+        "dart_jsonwebtoken",
+        "http",
+        "meta"
       ]
     },
     {
@@ -747,14 +919,6 @@
       ]
     },
     {
-      "name": "pointycastle",
-      "version": "4.0.0",
-      "dependencies": [
-        "collection",
-        "convert"
-      ]
-    },
-    {
       "name": "passkeys_server",
       "version": "1.0.0",
       "dependencies": [
@@ -764,40 +928,6 @@
         "dart_jsonwebtoken",
         "pointycastle",
         "uuid"
-      ]
-    },
-    {
-      "name": "googleapis_auth",
-      "version": "2.0.0",
-      "dependencies": [
-        "args",
-        "crypto",
-        "google_identity_services_web",
-        "http",
-        "http_parser"
-      ]
-    },
-    {
-      "name": "googleapis",
-      "version": "15.0.0",
-      "dependencies": [
-        "_discoveryapis_commons",
-        "http"
-      ]
-    },
-    {
-      "name": "email_validator",
-      "version": "3.0.0",
-      "dependencies": []
-    },
-    {
-      "name": "dart_jsonwebtoken",
-      "version": "3.3.1",
-      "dependencies": [
-        "clock",
-        "convert",
-        "ed25519_edwards",
-        "pointycastle"
       ]
     },
     {
@@ -866,13 +996,6 @@
         "pool",
         "stack_trace",
         "stream_channel"
-      ]
-    },
-    {
-      "name": "crypto",
-      "version": "3.0.7",
-      "dependencies": [
-        "typed_data"
       ]
     },
     {
@@ -1165,13 +1288,6 @@
       "dependencies": []
     },
     {
-      "name": "convert",
-      "version": "3.1.2",
-      "dependencies": [
-        "typed_data"
-      ]
-    },
-    {
       "name": "cli_config",
       "version": "0.2.0",
       "dependencies": [
@@ -1200,30 +1316,32 @@
       "dependencies": []
     },
     {
-      "name": "image",
-      "version": "4.7.2",
+      "name": "archive",
+      "version": "4.0.7",
       "dependencies": [
-        "archive",
-        "meta",
-        "xml"
+        "crypto",
+        "path",
+        "posix"
       ]
     },
     {
-      "name": "cbor",
-      "version": "6.5.0",
+      "name": "x509",
+      "version": "0.2.4+3",
       "dependencies": [
-        "characters",
+        "asn1lib",
+        "crypto_keys",
+        "quiver"
+      ]
+    },
+    {
+      "name": "crypto_keys",
+      "version": "0.3.0+2",
+      "dependencies": [
         "collection",
-        "convert",
-        "hex",
         "meta",
-        "typed_data"
+        "pointycastle",
+        "quiver"
       ]
-    },
-    {
-      "name": "asn1lib",
-      "version": "1.6.5",
-      "dependencies": []
     },
     {
       "name": "google_identity_services_web",
@@ -1250,6 +1368,18 @@
         "collection",
         "convert",
         "crypto"
+      ]
+    },
+    {
+      "name": "cbor",
+      "version": "6.5.0",
+      "dependencies": [
+        "characters",
+        "collection",
+        "convert",
+        "hex",
+        "meta",
+        "typed_data"
       ]
     },
     {
@@ -1396,15 +1526,6 @@
       ]
     },
     {
-      "name": "intl",
-      "version": "0.20.2",
-      "dependencies": [
-        "clock",
-        "meta",
-        "path"
-      ]
-    },
-    {
       "name": "nm",
       "version": "0.5.0",
       "dependencies": [
@@ -1421,18 +1542,20 @@
       ]
     },
     {
-      "name": "archive",
-      "version": "4.0.7",
+      "name": "posix",
+      "version": "6.0.3",
       "dependencies": [
-        "crypto",
-        "path",
-        "posix"
+        "ffi",
+        "meta",
+        "path"
       ]
     },
     {
-      "name": "hex",
-      "version": "0.2.0",
-      "dependencies": []
+      "name": "quiver",
+      "version": "3.2.2",
+      "dependencies": [
+        "matcher"
+      ]
     },
     {
       "name": "adaptive_number",
@@ -1440,6 +1563,11 @@
       "dependencies": [
         "fixnum"
       ]
+    },
+    {
+      "name": "hex",
+      "version": "0.2.0",
+      "dependencies": []
     },
     {
       "name": "path_provider_windows",
@@ -1503,15 +1631,6 @@
         "ffi",
         "meta",
         "xml"
-      ]
-    },
-    {
-      "name": "posix",
-      "version": "6.0.3",
-      "dependencies": [
-        "ffi",
-        "meta",
-        "path"
       ]
     },
     {

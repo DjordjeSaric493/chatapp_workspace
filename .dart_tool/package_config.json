@@ -164,10 +164,22 @@
       "languageVersion": "3.4"
     },
     {
+      "name": "crypto_keys",
+      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/crypto_keys-0.3.0+2",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "cupertino_icons",
       "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/cupertino_icons-1.0.8",
       "packageUri": "lib/",
       "languageVersion": "3.1"
+    },
+    {
+      "name": "dart_firebase_admin",
+      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/dart_firebase_admin-0.4.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
     },
     {
       "name": "dart_jsonwebtoken",
@@ -290,6 +302,12 @@
       "languageVersion": "3.8"
     },
     {
+      "name": "freezed_annotation",
+      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/freezed_annotation-3.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "frontend_server_client",
       "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/frontend_server_client-4.0.0",
       "packageUri": "lib/",
@@ -345,15 +363,21 @@
     },
     {
       "name": "googleapis",
-      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/googleapis-15.0.0",
+      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/googleapis-13.2.0",
       "packageUri": "lib/",
-      "languageVersion": "3.7"
+      "languageVersion": "3.4"
     },
     {
       "name": "googleapis_auth",
-      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/googleapis_auth-2.0.0",
+      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/googleapis_auth-1.6.0",
       "packageUri": "lib/",
-      "languageVersion": "3.6"
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "googleapis_beta",
+      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/googleapis_beta-9.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "graphs",
@@ -402,6 +426,12 @@
       "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/io-1.0.5",
       "packageUri": "lib/",
       "languageVersion": "3.4"
+    },
+    {
+      "name": "jose",
+      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/jose-0.3.5",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "js",
@@ -500,6 +530,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "openid_client",
+      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/openid_client-0.4.9+2",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "package_config",
       "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/package_config-2.2.0",
       "packageUri": "lib/",
@@ -558,6 +594,12 @@
       "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/path_provider_windows-2.3.0",
       "packageUri": "lib/",
       "languageVersion": "3.2"
+    },
+    {
+      "name": "pem",
+      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/pem-2.0.6",
+      "packageUri": "lib/",
+      "languageVersion": "3.5"
     },
     {
       "name": "petitparser",
@@ -644,6 +686,12 @@
       "languageVersion": "3.6"
     },
     {
+      "name": "quiver",
+      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/quiver-3.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "redis",
       "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/redis-4.0.0",
       "packageUri": "lib/",
@@ -700,6 +748,12 @@
     {
       "name": "serverpod_auth_idp_server",
       "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/serverpod_auth_idp_server-3.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.8"
+    },
+    {
+      "name": "serverpod_auth_server",
+      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/serverpod_auth_server-3.1.1",
       "packageUri": "lib/",
       "languageVersion": "3.8"
     },
@@ -948,6 +1002,12 @@
       "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/win32-5.15.0",
       "packageUri": "lib/",
       "languageVersion": "3.8"
+    },
+    {
+      "name": "x509",
+      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/x509-0.2.4+3",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "xdg_directories",

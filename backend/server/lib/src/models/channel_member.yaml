@@ -1,0 +1,7 @@
+class: ChannelMember
+table: channel_member
+fields:
+  user: module:auth:UserInfo?, relation
+  channel: Channel?, relation
+  role: String
+  joinedAt: DateTime?
