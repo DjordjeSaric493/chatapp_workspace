@@ -1,47 +1,36 @@
-import 'package:chatapp_client/chatapp_client.dart';
 import 'package:flutter/material.dart';
-import 'package:serverpod_flutter/serverpod_flutter.dart';
+import 'package:firebase_core/firebase_core.dart'; //arget of URI doesn't exist: 'package:firebase_core/firebase_core.dart'.
 import 'package:serverpod_auth_idp_flutter/serverpod_auth_idp_flutter.dart';
+import 'package:serverpod_auth_shared_flutter/serverpod_auth_shared_flutter.dart';
+import 'package:serverpod_flutter/serverpod_flutter.dart';
+import 'package:chatapp_client/chatapp_client.dart';
+import 'firebase_options.dart';
 
-import 'config/app_config.dart';
-import 'screens/greetings_screen.dart';
-
-/// Sets up a global client object that can be used to talk to the server from
-/// anywhere in our app. The client is generated from your server code
-/// and is set up to connect to a Serverpod running on a local server on
-/// the default port. You will need to modify this to connect to staging or
-/// production servers.
-/// In a larger app, you may want to use the dependency injection of your choice
-/// instead of using a global client object. This is just a simple example.
-late final Client client;
-
-late String serverUrl;
+// Globalni klijent da bi mu mogao pristupiti bilo gde u fajlu
+late Client client;
+late SessionManager sessionManager; //
 
 void main() async {
+  // Obavezno za async operacije u main-u
   WidgetsFlutterBinding.ensureInitialized();
 
-  // When you are running the app on a physical device, you need to set the
-  // server URL to the IP address of your computer. You can find the IP
-  // address by running `ipconfig` on Windows or `ifconfig` on Mac/Linux.
-  // You can set the variable when running or building your app like this:
-  // E.g. `flutter run --dart-define=SERVER_URL=https://api.example.com/`
-  const serverUrlFromEnv = String.fromEnvironment('SERVER_URL');
-  // AppConfig loads the API server URL from the assets/config.json file.
-  // When the app runs in a browser, this file is fetched from the server,
-  // allowing the server to change the API URL at runtime.
-  // This ensures the app always uses the correct API URL,
-  // no matter which environment it is running in.
-  final config = await AppConfig.loadConfig();
-  final serverUrl = serverUrlFromEnv.isEmpty
-      ? config.apiUrl ?? 'http://$localhost:8080/'
-      : serverUrlFromEnv;
+  // 1. Inicijalizacija Firebase-a
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  // 2. Inicijalizacija Session Managera (Ovo rešava tvoj problem)
+  sessionManager = FlutterAuthSessionManager() as SessionManager;
+  await sessionManager.initialize();
 
-  client = Client(serverUrl)
-    ..connectivityMonitor = FlutterConnectivityMonitor()
-    ..authSessionManager = FlutterAuthSessionManager();
+  // 2. Inicijalizacija Serverpod klijenta
+  // Napomena: Za Android Emulator koristi 'http://10.0.2.2:8080/'
+  client = Client(
+    'http://localhost:8080/',
+    authenticationKeyManager: FlutterAuthenticationKeyManager(),
+  )..connectivityMonitor = FlutterConnectivityMonitor();
 
-  client.auth.initialize();
-
+  // 3. Inicijalizacija Auth modula
+  await client.auth.initialize();
   runApp(const MyApp());
 }
 
@@ -51,35 +40,59 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Serverpod Demo',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: const MyHomePage(title: 'Serverpod Example'),
+      title: 'Chat App FON',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
+      ),
+      home: const MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key, required this.title});
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
 
-  final String title;
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  bool _isLoggedIn = false;
+
+  @override
+  void initState() {
+    super.initState();
+    // Provera da li je korisnik ulogovan preko Serverpod session manager-a
+    _isLoggedIn = sessionManager.isSignedIn;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(title)),
-      body: const GreetingsScreen(),
-      // To test authentication in this example app, uncomment the line below
-      // and comment out the line above. This wraps the GreetingsScreen with a
-      // SignInScreen, which automatically shows a sign-in UI when the user is
-      // not authenticated and displays the GreetingsScreen once they sign in.
-      //
-      // body: SignInScreen(
-      //   child: GreetingsScreen(
-      //     onSignOut: () async {
-      //       await client.auth.signOutDevice();
-      //     },
-      //   ),
-      // ),
+      appBar: AppBar(
+        title: const Text("Chat App FON"),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              _isLoggedIn ? "Ulogovani ste!" : "Niste ulogovani.",
+              style: const TextStyle(fontSize: 20),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Ovde bi išla tvoja logika za login bez provajdera
+                print("Dugme kliknuto");
+              },
+              child: const Text("Prijavi se sa Google-om"),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
