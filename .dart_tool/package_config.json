@@ -716,6 +716,12 @@
       "languageVersion": "3.8"
     },
     {
+      "name": "serverpod_auth_client",
+      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/serverpod_auth_client-3.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.8"
+    },
+    {
       "name": "serverpod_auth_core_client",
       "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/serverpod_auth_core_client-3.1.1",
       "packageUri": "lib/",

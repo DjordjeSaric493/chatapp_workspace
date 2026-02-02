@@ -941,6 +941,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.1"
+  serverpod_auth_client:
+    dependency: transitive
+    description:
+      name: serverpod_auth_client
+      sha256: e3d0f4043e5acf27c1f53260f68f6978cdc1166e84969e118854b36e70581e78
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.1"
   serverpod_auth_core_client:
     dependency: transitive
     description:

@@ -21,6 +21,7 @@
         "chatapp_client",
         "cupertino_icons",
         "flutter",
+        "serverpod_auth_client",
         "serverpod_auth_idp_flutter",
         "serverpod_flutter"
       ],
@@ -277,6 +278,14 @@
       "version": "6.0.0",
       "dependencies": [
         "lints"
+      ]
+    },
+    {
+      "name": "serverpod_auth_client",
+      "version": "3.1.1",
+      "dependencies": [
+        "lints",
+        "serverpod_client"
       ]
     },
     {
