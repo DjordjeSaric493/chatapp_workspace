@@ -291,7 +291,7 @@
     },
     {
       "name": "firebase_auth_platform_interface",
-      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/firebase_auth_platform_interface-7.7.3",
+      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/firebase_auth_platform_interface-7.4.7",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
@@ -360,24 +360,6 @@
       "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/flutter_lints-6.0.0",
       "packageUri": "lib/",
       "languageVersion": "3.8"
-    },
-    {
-      "name": "flutter_local_notifications",
-      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/flutter_local_notifications-14.1.5",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
-      "name": "flutter_local_notifications_linux",
-      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/flutter_local_notifications_linux-4.0.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
-      "name": "flutter_local_notifications_platform_interface",
-      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/flutter_local_notifications_platform_interface-7.2.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
     },
     {
       "name": "flutter_localizations",
@@ -1230,12 +1212,6 @@
       "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/test_core-0.6.11",
       "packageUri": "lib/",
       "languageVersion": "3.5"
-    },
-    {
-      "name": "timezone",
-      "rootUri": "file:///home/djordje/.pub-cache/hosted/pub.dev/timezone-0.9.4",
-      "packageUri": "lib/",
-      "languageVersion": "2.19"
     },
     {
       "name": "typed_data",

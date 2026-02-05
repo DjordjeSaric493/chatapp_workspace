@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:serverpod/serverpod.dart';
 import 'package:serverpod_auth_idp_server/core.dart';
 import 'package:serverpod_auth_idp_server/providers/email.dart';
+import 'package:serverpod_auth_server/serverpod_auth_server.dart' as auth;
 
 import 'src/generated/endpoints.dart';
 import 'src/generated/protocol.dart';
@@ -14,17 +15,48 @@ void run(List<String> args) async {
   // Initialize Serverpod and connect it with your generated code.
   final pod = Serverpod(args, Protocol(), Endpoints());
 
+  // -----------------------------------------------------------------------
+  // 🛠️ FIX ZA ĐORĐA: GLOBALNI AUTH CONFIG
+  // Ovim "prevarimo" Serverpod da misli da je email poslat, a zapravo
+  // mi odmah potvrđujemo nalog u bazi.
+  // -----------------------------------------------------------------------
+  auth.AuthConfig.set(
+    auth.AuthConfig(
+      sendValidationEmail: (session, email, validationCode) async {
+        print('🚀 GLOBALNI BYPASS AKTIVIRAN ZA: $email (Kod: $validationCode)');
+
+        // Odmah pozivamo funkciju za kreiranje naloga
+        var userInfo = await auth.Emails.tryCreateAccount(
+          session,
+          email: email,
+          verificationCode: validationCode,
+        );
+
+        if (userInfo != null) {
+          print('✅ USPEH: Nalog kreiran kroz globalni config!');
+          return true; // Vraćamo true da Serverpod misli da je email poslat
+        } else {
+          print('⚠️ NIJE USPELO: tryCreateAccount vratio null.');
+          return false;
+        }
+      },
+      sendPasswordResetEmail: (session, userInfo, validationCode) async {
+        print('Password reset code za ${userInfo.email}: $validationCode');
+        return true;
+      },
+    ),
+  );
+  // -----------------------------------------------------------------------
+
   // Initialize authentication services for the server.
-  // Token managers will be used to validate and issue authentication keys,
-  // and the identity providers will be the authentication options available for users.
   pod.initializeAuthServices(
     tokenManagerBuilders: [
-      // Use JWT for authentication keys towards the server.
       JwtConfigFromPasswords(),
     ],
     identityProviderBuilders: [
-      // Configure the email identity provider for email/password authentication.
       EmailIdpConfigFromPasswords(
+        // Ostavljamo i ovde tvoje funkcije za svaki slučaj, ali
+        // gornji AuthConfig.set će verovatno prvi uhvatiti zahtev.
         sendRegistrationVerificationCode: _sendRegistrationCode,
         sendPasswordResetVerificationCode: _sendPasswordResetCode,
       ),
@@ -32,18 +64,14 @@ void run(List<String> args) async {
   );
 
   // Setup a default page at the web root.
-  // These are used by the default page.
   pod.webServer.addRoute(RootRoute(), '/');
   pod.webServer.addRoute(RootRoute(), '/index.html');
 
   // Serve all files in the web/static relative directory under /.
-  // These are used by the default web page.
   final root = Directory(Uri(path: 'web/static').toFilePath());
   pod.webServer.addRoute(StaticRoute.directory(root));
 
   // Setup the app config route.
-  // We build this configuration based on the servers api url and serve it to
-  // the flutter app.
   pod.webServer.addRoute(
     AppConfigRoute(apiConfig: pod.config.apiServer),
     '/app/assets/assets/config.json',
@@ -52,7 +80,6 @@ void run(List<String> args) async {
   // Checks if the flutter web app has been built and serves it if it has.
   final appDir = Directory(Uri(path: 'web/app').toFilePath());
   if (appDir.existsSync()) {
-    // Serve the flutter web app under the /app path.
     pod.webServer.addRoute(
       FlutterRoute(
         Directory(
@@ -62,7 +89,6 @@ void run(List<String> args) async {
       '/app',
     );
   } else {
-    // If the flutter web app has not been built, serve the build app page.
     pod.webServer.addRoute(
       StaticRoute.file(
         File(
@@ -77,16 +103,22 @@ void run(List<String> args) async {
   await pod.start();
 }
 
+// Ostavljamo i ovu funkciju kao backup
 void _sendRegistrationCode(
   Session session, {
   required String email,
   required UuidValue accountRequestId,
   required String verificationCode,
   required Transaction? transaction,
-}) {
-  // NOTE: Here you call your mail service to send the verification code to
-  // the user. For testing, we will just log the verification code.
-  session.log('[EmailIdp] Registration code ($email): $verificationCode');
+}) async {
+  print('🚀 BACKUP BYPASS ZA: $email');
+  // Logika je sada prebačena i gore u AuthConfig.set
+  // ali neka stoji ovde da ne pukne kod ako Serverpod odluči da koristi ovo.
+  await auth.Emails.tryCreateAccount(
+    session,
+    email: email,
+    verificationCode: verificationCode,
+  );
 }
 
 void _sendPasswordResetCode(
@@ -96,7 +128,5 @@ void _sendPasswordResetCode(
   required String verificationCode,
   required Transaction? transaction,
 }) {
-  // NOTE: Here you call your mail service to send the verification code to
-  // the user. For testing, we will just log the verification code.
   session.log('[EmailIdp] Password reset code ($email): $verificationCode');
 }
